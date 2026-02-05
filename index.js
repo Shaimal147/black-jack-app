@@ -1,6 +1,6 @@
 function game() {
     let cards = [2, 3]
-    let sum = calculateSum()
+    let sum = 0
     let hadBlackjack = false
     let isAlive = true
     let message = ""
