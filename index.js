@@ -1,5 +1,6 @@
 function game() {
-    let cards = [2, 3]
+    let cards = []
+    let card = 0
     let sum = 0
     let hadBlackjack = false
     let isAlive = true
@@ -15,6 +16,11 @@ function game() {
     newCardBtn.addEventListener("click", newCardButton)
 
     function startGame() {
+        for (let x = 1; x < 3; x++) {
+            card = getRandomCard()
+            cards.push(card)
+        }
+
         newCardBtn.hidden = false
         render()
     }
@@ -37,7 +43,8 @@ function game() {
 
     function newCardButton() {
         if (!isAlive || hadBlackjack) return
-        cards.push(1)
+        card = getRandomCard()
+        cards.push(card)
         render()
     }
 
@@ -50,6 +57,10 @@ function game() {
         cardsEl.textContent = `Cards: ${cards.join(" - ")}`
         sumEl.textContent = `Sum: ${sum}`
         gameRules()
+    }
+
+    function getRandomCard() {
+        return Math.floor(Math.random() * 12) + 1
     }
 
 }
