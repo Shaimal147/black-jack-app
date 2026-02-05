@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: Cinzel, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-image: url(./Screenshot\ from\ 2026-02-05\ 18-35-24.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5rem;
+}
+
+main {
+    margin-left: 50%;
+    display: flex;
+    padding: 5rem;
+    width: 100%;
+}
+
+.game-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25);
+
+  padding: 1.5rem;
+}
+
+.glass-btn {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+
+  padding: 0.6rem 1.4rem;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.glass-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.glass-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.35),
+    0 6px 20px rgba(0, 0, 0, 0.3);
+}

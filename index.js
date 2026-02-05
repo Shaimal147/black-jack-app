@@ -3,25 +3,33 @@ function game() {
     let secondCard = 4
     let sum = firstCard + secondCard
     let hadBlackjack = false
+    let isAlive = true
+    let message = ""
+
+    const startBtn = document.getElementById("start-btn")
+
+    startBtn.addEventListener("click", startGame)
+
+    function startGame() {
+        gameRules()
+    }
 
     function gameRules() {
         if (sum <= 20) {
-            console.log("Do you want to draw a new card")
+            message = "Do you want to draw a new card?"
+            console.log(message)
         } else if (sum === 21) {
-            console.log("Whooo! You've got Blackjack!")
+            message = "Whooo! You've got Blackjack!"
             hadBlackjack = true
+            console.log(message)
         } else {
-            console.log("You're out of the game!")
+            message = "You're out of the game!"
+            isAlive = false
+            console.log(message)
         }
-    }
-
-    return {
-        gameRules   
     }
 }
 
 
 
 const blackJack = game()
-
-blackJack.gameRules()
