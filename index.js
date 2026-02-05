@@ -2,7 +2,7 @@ function game() {
     let cards = []
     let card = 0
     let sum = 0
-    let hadBlackjack = false
+    let hasBlackjack = false
     let isAlive = true
     let message = ""
 
@@ -16,12 +16,15 @@ function game() {
     newCardBtn.addEventListener("click", newCardButton)
 
     function startGame() {
-        for (let x = 1; x < 3; x++) {
+        resetGame()
+
+        for (let x = 0; x < 2; x++) {
             card = getRandomCard()
             cards.push(card)
         }
 
         newCardBtn.hidden = false
+        startBtn.hidden = true
         render()
     }
 
@@ -30,19 +33,19 @@ function game() {
             message = "Do you want to draw a new card?"
         } else if (sum === 21) {
             message = "Whooo! You've got Blackjack!"
-            hadBlackjack = true
-            newCardBtn.hidden = true
+            hasBlackjack = true
+            endRoundUI()
         } else {
             message = "You're out of the game!"
             isAlive = false
-            newCardBtn.hidden = true
+            endRoundUI()
         }
 
         messageEl.textContent = message
     }
 
     function newCardButton() {
-        if (!isAlive || hadBlackjack) return
+        if (!isAlive || hasBlackjack) return
         card = getRandomCard()
         cards.push(card)
         render()
@@ -63,6 +66,17 @@ function game() {
         return Math.floor(Math.random() * 12) + 1
     }
 
+    function resetGame() {
+        cards = []
+        sum = 0
+        hasBlackjack = false
+        isAlive = true
+    }
+
+    function endRoundUI() {
+        newCardBtn.hidden = true
+        startBtn.hidden = false
+    }
 }
 
 
