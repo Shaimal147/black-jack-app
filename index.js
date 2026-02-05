@@ -2,6 +2,7 @@ function game() {
     let cards = []
     let card = 0
     let sum = 0
+    let specialCards = [11, 12, 13]
     let hasBlackjack = false
     let isAlive = true
     let message = ""
@@ -63,7 +64,15 @@ function game() {
     }
 
     function getRandomCard() {
-        return Math.floor(Math.random() * 12) + 1
+        let randomNumber = Math.floor(Math.random() * 13) + 1
+        if (randomNumber === 1) {
+            return 11
+        } 
+        if (specialCards.includes(randomNumber)) {
+            return 10
+        } else {
+            return randomNumber
+        }
     }
 
     function resetGame() {
